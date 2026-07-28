@@ -1,0 +1,7 @@
+# Only the deployed app and its source are tracked in this repo.
+# Old drafts, screenshots, and internal docs stay local-only.
+*
+!.gitignore
+!index.html
+!index.html.html
+!README.md
