@@ -1475,7 +1475,12 @@ async function emailTag(address, label){
     const blob = pdf.output('blob');
     const file = new File([blob], fileName, { type:'application/pdf' });
 
-    if(navigator.canShare && navigator.canShare({ files:[file] })){
+    // Windows desktop's Share-to-Outlook path has been seen delivering a
+    // 0-byte file (Chrome/Edge bug in the blob hand-off), so only attempt the
+    // attach-and-share flow on touch devices (phones/tablets) where it works;
+    // desktop always uses the download+mailto fallback below.
+    const isTouchDevice = matchMedia('(pointer: coarse)').matches;
+    if(isTouchDevice && navigator.canShare && navigator.canShare({ files:[file] })){
       if(statusEl) statusEl.textContent = 'Opening share sheet…';
       await navigator.share({ files:[file], title:subject, text:`For: ${label}` });
       if(statusEl) statusEl.textContent = 'Shared.';
