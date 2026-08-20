@@ -560,6 +560,55 @@ const DATA = {
       "Bursting / Cracking": [],
       "Other": []
     }
+  },
+  "Shipping": {
+    categories: {
+      "Wrong Product Shipped": [],
+      "Wrong Quantity Shipped": ["Short shipped","Over shipped"],
+      "Damaged in Transit / Handling": ["Crushed corners","Water / wet damage","Forklift damage"],
+      "Wrong Address / Ship-To Error": [],
+      "Missing / Incorrect Paperwork": ["Missing BOL","Wrong BOL info","Missing packing slip"],
+      "Pallet Not Wrapped / Unstable": [],
+      "Mislabeled Pallet / Carton": ["Wrong label","Missing label","Duplicate label"],
+      "Late Shipment / Missed Ship Date": [],
+      "Other": []
+    },
+    dispositions: [
+      "Hold — Do Not Ship",
+      "Reship Correct Product",
+      "Ship Short — Backorder Remainder",
+      "Return to Warehouse Stock",
+      "Repack / Re-palletize Before Ship",
+      "Notify Carrier — File Claim",
+      "Contact Customer — Confirm Resolution",
+      "Use With Approval",
+      "Scrap — Do Not Use",
+      "Other — Add Comment"
+    ]
+  },
+  "CSR/Sales": {
+    categories: {
+      "Wrong Product Ordered": ["Wrong item number","Wrong description entered"],
+      "Wrong Quantity Entered": [],
+      "Wrong Ship-To / Bill-To Address": [],
+      "Pricing Error": [],
+      "Artwork / Proof Approval Error": [],
+      "Customer Spec Mismatch": ["Wrong size entered","Wrong color / finish entered","Wrong material entered"],
+      "PO Discrepancy": ["PO quantity mismatch","PO pricing mismatch","Missing PO"],
+      "Due Date / Ship Date Miscommunicated": [],
+      "Other": []
+    },
+    dispositions: [
+      "Hold — Confirm With Customer",
+      "Correct Order — Reprocess",
+      "Contact Customer for Clarification",
+      "Cancel and Reorder Correctly",
+      "Notify Production — Update Job Ticket",
+      "Issue Credit / Adjustment",
+      "Use With Approval",
+      "Escalate to Manager",
+      "Other — Add Comment"
+    ]
   }
 };
 
