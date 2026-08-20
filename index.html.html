@@ -1092,10 +1092,15 @@ function setDispoMode(mode, node){
   validate();
 }
 
+function dispositionsForStation(){
+  const station = DATA[state.station];
+  return (station && station.dispositions) || DISPOSITIONS;
+}
+
 function buildDispositionStep(){
   const grid = el('dispoGrid');
-  if(grid.children.length) return;
-  DISPOSITIONS.forEach(dis=>{
+  grid.innerHTML = '';
+  dispositionsForStation().forEach(dis=>{
     const b = document.createElement('button');
     b.type='button'; b.className='opt'; b.textContent=dis; b.dataset.dis=dis;
     b.setAttribute('aria-pressed','false');
