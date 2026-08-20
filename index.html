@@ -1156,7 +1156,7 @@ function renderPerIssueDispositions(){
     approvalInput.addEventListener('input', ()=>{ state.perIssueDispoApproval.set(cat, approvalInput.value); validate(); });
     approvalWrap.appendChild(approvalInput);
 
-    DISPOSITIONS.forEach(dis=>{
+    dispositionsForStation().forEach(dis=>{
       const b = document.createElement('button');
       b.type='button'; b.className='opt'; b.textContent=dis;
       b.setAttribute('aria-pressed', set.has(dis) ? 'true':'false');
