@@ -1218,6 +1218,10 @@ function toggleCategory(cat, node, subOptions){
     if(!state.dispositionMode){
       const sameBtn = document.querySelector('#dispoModeGrid .opt[data-mode="same"]');
       if(sameBtn) setDispoMode('same', sameBtn);
+    } else {
+      // Earlier choices were kept when the last category was deselected; bring their cards back.
+      el('areaCard').classList.remove('hidden');
+      if(state.areaMode) el('palletCard').classList.remove('hidden');
     }
   } else {
     el('dispoCard').classList.add('hidden');
@@ -1258,7 +1262,7 @@ function buildDispositionStep(){
   dispositionsForStation().forEach(dis=>{
     const b = document.createElement('button');
     b.type='button'; b.className='opt'; b.textContent=dis; b.dataset.dis=dis;
-    b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-pressed', state.selectedDispositions.has(dis) ? 'true' : 'false');
     b.onclick = ()=>toggleDisposition(dis, b);
     grid.appendChild(b);
   });
